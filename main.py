@@ -11,9 +11,10 @@ screen.tracer(0)
 paddle = Paddle()
 
 screen.listen()
-screen.onkey(paddle.move_up, "Up")
-screen.onkey(paddle.move_down, "Down")
-
+screen.onkey(paddle.move_up_rightside, "Up")
+screen.onkey(paddle.move_down_rightside, "Down")
+screen.onkey(paddle.move_up_leftside, "w")
+screen.onkey(paddle.move_down_leftside, "s")
 
 game_on = True
 while game_on:
