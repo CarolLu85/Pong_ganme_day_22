@@ -28,14 +28,14 @@ game_on = True
 while game_on:
     if ball.ycor() > 290 or ball.ycor() < -290:
         ball.bounce_up_down()
-    if (abs(paddle.left.xcor() - ball.xcor()) == 15 and (paddle.left.ycor() - 50 <= ball.ycor() <= paddle.left.ycor() + 50)) or ((abs(paddle.right.xcor() - ball.xcor()) == 20 and (paddle.right.ycor() - 50 <= ball.ycor() <= paddle.right.ycor() + 50))):
+    if (abs(paddle.left.xcor() - ball.xcor()) <= 15 and (paddle.left.ycor() - 50 <= ball.ycor() <= paddle.left.ycor() + 50)) or ((abs(paddle.right.xcor() - ball.xcor()) <= 20 and (paddle.right.ycor() - 50 <= ball.ycor() <= paddle.right.ycor() + 50))):
         ball.bounce_left_right()
     if ball.xcor() < -400:
-        ball.bounce_left_right()
+        ball.reset_position()
         right_score = scoreboard.update__rightscore()
         print(right_score)
     if ball.xcor() > 400:
-        ball.bounce_left_right()
+        ball.reset_position()
         left_score = scoreboard.update_leftscore()
         print(left_score)
     if left_score == 10 or right_score == 10:
@@ -47,10 +47,7 @@ while game_on:
 
 
 
-
-
-
-
-
-
 screen.exitonclick()
+
+# if ball.distance(r_paddle) <50 and ball.xcor()>320  or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
+#             ball.bounce_left_right()
